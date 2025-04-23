@@ -61,3 +61,15 @@ Low_complexity and Simple_repeat predictions were removed from the repeatmasker 
 A chi-square test was performed to compare the statistical significance of differences in mobile element composition of different genomic contexts:
 
 `Rscript chi_square_repeat_masker.R`
+
+## Functional annotation
+
+The function of Neff proteins was predicted using interposcan:
+
+`qsub interproscan.sh`
+
+## Phylogenetic trees
+
+Phylogenetic trees were generated using IQ-tree:
+
+`qsub iqtree.sh`
