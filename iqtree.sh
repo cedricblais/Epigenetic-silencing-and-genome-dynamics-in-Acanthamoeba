@@ -1,0 +1,1 @@
+iqtree -s KinasesLGT_VirEukAcas.al.trim.phy -m MFP -B 1000 -alrt 1000 -T AUTO
