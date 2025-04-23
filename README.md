@@ -34,4 +34,30 @@ The specific transcripts per million (TPM) values for all predicted genes and vi
 
 A t-test comparing the TPM values of conserved and unconserved viral and non-viral genes was performed:
 
-`R SCRIPT`
+`Rscript expression_violin.R`
+
+## Methylation analysis
+
+Methylation calls using nanopolish require aligning nanopore reads to a genome reference. This was done with minimap2:
+
+`qsub minimap2_final.sh`
+
+The resulting .bam file is then used as an input file for the nanopolish script:
+
+`qsub call_methylation_nanopolish_final.sh`
+
+A t-test comparing the methylation levels of CpG sites across different genomic contexts was then performed:
+
+`Rscript genomic_context_methylation_violin.R`
+
+## Mobile elements
+
+Mobile elements were predicted using repeatmasker:
+
+`qsub repeat_masker.sh`
+
+Low_complexity and Simple_repeat predictions were removed from the repeatmasker .out file using `grep -v $file.out`. The file was then made R friendly by replacing sequences of multiple spaces with tabs and removing leading characters: `sed 's/  */ /g' file.out | cut -c2- | sed 's/ /       /g'`
+
+A chi-square test was performed to compare the statistical significance of differences in mobile element composition of different genomic contexts:
+
+`Rscript chi_square_repeat_masker.R`
