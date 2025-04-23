@@ -8,11 +8,21 @@ Viral proteins were detected using a diamond BLASTp search of all predicted prot
 
 Taxonomy was assigned to hits using [acc2tax](https://github.com/richardmleggett/acc2tax). Hits to other Acanthamoeba proteins, as well as entries with taxonomy listed as 'NO TAXA FOUND', 'other entries' and 'Unknown' were filtered out using `grep -v ',Acanthamoeba,' $ | grep -v 'NO TAXA FOUND' | grep -v 'other entries' | grep -v 'Unknown'`. Proteins were retained as viral if either the top hit after filtering was viral, or if at least 5/10 top blast hits were viral.
 
-Viral hallmark genes were detected using ViralRecall
+Viral hallmark genes were detected using ViralRecall:
 
 `qsub viral_recall_hallmark_genes.sh`
 
 ## Conservation and delineation of viral regions
 
+The Neff and C3 genomes were aligned with mummer4, and the show-diff function was used to identify differences in the assemblies:
+`qsub [mummer4_genome_alignment_final.sh](mummer4_genome_alignment_final.sh)`
+
+Overlapping differences in the alignments were concatenated together to form 'divergent regions', using a custom script which accounts for translocations. Viral regions were defined as divergent regions which had at least one fully overlapping gene. Unconserved genes were defined as genes which fully overlapped with show-diff features corresponding to gaps in the alignment (GAP, BRK, JMP, INV, SEQ).
+`python SCRIPT`
+
 ## Expression
+
+To assess global expression levels, HISAT2 was used to align reads to the reference:
+`qsub [hisat2_C3_final.sh](hisat2_C3_final.sh)`
+
 kallisto
