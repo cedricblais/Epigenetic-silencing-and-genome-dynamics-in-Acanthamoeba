@@ -23,6 +23,15 @@ Overlapping differences in the alignments were concatenated together to form 'di
 ## Expression
 
 To assess global expression levels, HISAT2 was used to align reads to the reference:
+
 `qsub [hisat2_C3_final.sh](hisat2_C3_final.sh)`
 
-kallisto
+The specific transcripts per million (TPM) values for all predicted genes and viral intergenic ORFs were calculated using kallisto:
+
+`qsub kallisto_final.sh` for Neff.
+
+`qsub kallisto_single_final.sh` for c3.
+
+A t-test comparing the TPM values of conserved and unconserved viral and non-viral genes was performed:
+
+`R SCRIPT`
