@@ -1,6 +1,6 @@
 # Bioinformatic analysis of viral DNA in Acanthamoeba str. C3 and Neff
 
-This repository documents the bioinformatic tools used for the study "Epigenetic silencing and genome dynamics determine the fate of giant virus endogenizations in Acanthamoeba". Files associated with the code deposited here can be found at 10.5281/zenodo.15269025.
+This repository documents the bioinformatic tools used for the study "Epigenetic silencing and genome dynamics determine the fate of giant virus endogenizations in Acanthamoeba". Files associated with the code deposited here can be found at [10.5281/zenodo.15269025](https://doi.org/10.5281/zenodo.15269025).
 
 ## Viral sequence detection
 
